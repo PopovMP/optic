@@ -8,6 +8,8 @@ function initialize() {
 	initializeCyl()
 	initializeAdd()
 	initializePupil()
+
+	calculate()
 }
 
 function initializeSph() {
@@ -90,6 +92,10 @@ function initializePupil() {
 function option_changed(event) {
 	event.preventDefault()
 
+	calculate()
+}
+
+function calculate() {
 	const rightSph = Math.round(parseFloat(view.rightSph.value) * 100)
 	const rightCyl = Math.round(parseFloat(view.rightCyl.value) * 100)
 	const rightSe  = getSe(rightSph, rightCyl)

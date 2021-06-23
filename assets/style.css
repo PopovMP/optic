@@ -1,6 +1,8 @@
 body {
     font-size: 150%;
     text-align: center;
+    background-color: #221c60;
+    color: #fff;
 }
 
 select {
@@ -24,8 +26,9 @@ th {
     padding: 20px;
     font-size: 1.3em;
 }
+
 td {
-    padding-top: 25px;
+    padding-top: 50px;
     vertical-align: top;
 }
 
@@ -38,6 +41,7 @@ td {
 }
 
 .td-result {
+    padding: 30px;
     min-width: 220px;
     text-align: left;
     background-size: contain;
@@ -45,7 +49,14 @@ td {
 }
 
 .result {
+    color: #000;
+    font-size: 130%;
     min-height: 150px;
-    padding-left: 76px;
+    padding-left: 63px;
     font-weight: bold;
+}
+
+label {
+    font-size: 120%;
+    margin-bottom: 5px;
 }

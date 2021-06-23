@@ -82,8 +82,8 @@ function initializePupil() {
 	view.rightPupil.innerHTML = addOptionHtml
 	view.leftPupil.innerHTML  = addOptionHtml
 
-	view.rightPupil.value = '10'
-	view.leftPupil.value  = '10'
+	view.rightPupil.value = '19'
+	view.leftPupil.value  = '19'
 
 	view.rightPupil.addEventListener( 'change', option_changed)
 	view.leftPupil.addEventListener('change',   option_changed)
@@ -106,12 +106,12 @@ function calculate() {
 
 	const rightPup = parseInt(view.rightPupil.value)
 	if (rightPup < 15) {
-		view.rightRes.innerHTML = 'Bas. Sh.<br>Pr. Sh.<br>Al. Sh.<br>Chan 5'
+		view.rightRes.innerHTML = 'Bas Sh<br>Pr Sh<br>Al Sh<br>Chan 5'
 	}
 
 	const leftPup = parseInt(view.leftPupil.value)
 	if (leftPup < 15) {
-		view.leftRes.innerHTML = 'Bas. Sh.<br>Pr. Sh.<br>Al. Sh.<br>Chan 5'
+		view.leftRes.innerHTML = 'Bas Sh<br>Pr Sh<br>Al Sh<br>Chan 5'
 	}
 
 	if ( Math.abs(rightSe - leftSe) < 300) {

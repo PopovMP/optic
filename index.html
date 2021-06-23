@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Оптика</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header><img src="assets/img/logo_2020_1.jpg" alt="Оптика Христови"></header>
+<table id="table-data">
+  <tr>
+    <td colspan="6">Дясно око</td>
+  </tr>
+  <tr>
+    <td>
+      <label for="right-sph">Sph</label><br>
+      <select id="right-sph">
+      </select>
+    </td>
+    <td>
+      <label for="right-cyl">Cyl</label><br>
+      <select id="right-cyl">
+      </select>
+    </td>
+    <td>
+      <label for="right-add">Add</label><br>
+      <select id="right-add">
+      </select>
+    </td>
+    <td>
+      <label for="right-pupil">H.Pup</label><br>
+      <select id="right-pupil">
+      </select>
+    </td>
+    <td class="td-separator"></td>
+    <td class="result" id="right-res">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="6">Ляво око</td>
+  </tr>
+  <tr>
+    <td>
+      <label for="left-sph">Sph</label><br>
+      <select id="left-sph">
+      </select>
+    </td>
+    <td>
+      <label for="left-cyl">Cyl</label><br>
+      <select id="left-cyl">
+      </select>
+    </td>
+    <td>
+      <label for="left-add">Add</label><br>
+      <select id="left-add">
+      </select>
+    </td>
+    <td>
+      <label for="left-pupil">H.Pup</label><br>
+      <select id="left-pupil">
+      </select>
+    </td>
+    <td class="td-separator"></td>
+    <td class="result" id="left-res">
+    </td>
+  </tr>
+</table>
+
+<script src="assets/index.js" ></script>
+<script>
+    (() => {
+	    initialize()
+    })()
+</script>
+</body>
+</html>

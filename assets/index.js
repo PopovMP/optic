@@ -104,19 +104,35 @@ function calculate() {
 	const leftCyl = Math.round(parseFloat(view.leftCyl.value) * 100)
 	const leftSe  = getSe(leftSph, leftCyl)
 
-	if ( Math.abs(rightSe - leftSe) < 300) {
-		const rightAdd = Math.round(parseFloat(view.rightAdd.value) * 100)
-		const rightPup = parseInt(view.rightPupil.value)
-		view.rightRes.innerHTML = calculateOptic(rightSe, rightAdd, rightPup)
+	const rightPup = parseInt(view.rightPupil.value)
+	if (rightPup < 15) {
+		view.rightRes.innerHTML = 'Bas. Sh.<br>Pr. Sh.<br>Al. Sh.<br>Chan 5'
+	}
 
-		const leftAdd = Math.round(parseFloat(view.leftAdd.value) * 100)
-		const leftPup = parseInt(view.leftPupil.value)
-		view.leftRes.innerHTML  = calculateOptic(leftSe,   leftAdd, leftPup)
+	const leftPup = parseInt(view.leftPupil.value)
+	if (leftPup < 15) {
+		view.leftRes.innerHTML = 'Bas. Sh.<br>Pr. Sh.<br>Al. Sh.<br>Chan 5'
+	}
+
+	if ( Math.abs(rightSe - leftSe) < 300) {
+		if (rightPup >= 15) {
+			const rightAdd = Math.round(parseFloat(view.rightAdd.value) * 100)
+			view.rightRes.innerHTML = calculateOptic(rightSe, rightAdd, rightPup)
+		}
+
+		if (leftPup >= 15) {
+			const leftAdd = Math.round(parseFloat(view.leftAdd.value) * 100)
+			view.leftRes.innerHTML = calculateOptic(leftSe, leftAdd, leftPup)
+		}
 	}
 	else {
-		const res = 'HD<br>HD 2<br>HD 3<br>Chan 7'
-		view.rightRes.innerHTML = res
-		view.leftRes.innerHTML  = res
+		if (rightPup >= 15) {
+			view.rightRes.innerHTML = 'HD<br>HD 2<br>HD 3<br>Chan 7'
+		}
+
+		if (rightPup >= 15) {
+			view.leftRes.innerHTML  = 'HD<br>HD 2<br>HD 3<br>Chan 7'
+		}
 	}
 }
 

@@ -6,10 +6,13 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header><img src="assets/img/logo_2020_1.jpg" alt="Оптика Христови"></header>
+<header><img src="assets/img/logo_2020_1.jpg" alt="Оптика Христови" width="450"></header>
+
+<h1>калкулатор на прогресивни дизайни</h1>
+
 <table id="table-data">
   <tr>
-    <td colspan="6">Дясно око</td>
+    <th colspan="8">дясно око</th>
   </tr>
   <tr>
     <td>
@@ -22,22 +25,28 @@
       <select id="right-cyl">
       </select>
     </td>
+    <td class="td-separator-add"></td>
     <td>
       <label for="right-add">Add</label><br>
       <select id="right-add">
       </select>
     </td>
+    <td class="td-separator-add"></td>
     <td>
       <label for="right-pupil">H.Pup</label><br>
       <select id="right-pupil">
       </select>
     </td>
     <td class="td-separator"></td>
-    <td class="result" id="right-res">
+    <td class="td-result" style="background-image: url('assets/img/right-glass.jpg');">
+      <div class="result" id="right-res"></div>
     </td>
   </tr>
   <tr>
-    <td colspan="6">Ляво око</td>
+    <td style="min-height: 150px">&nbsp;</td>
+  </tr>
+  <tr>
+    <th colspan="8">ляво око</th>
   </tr>
   <tr>
     <td>
@@ -50,18 +59,21 @@
       <select id="left-cyl">
       </select>
     </td>
+    <td class="td-separator-add"></td>
     <td>
       <label for="left-add">Add</label><br>
       <select id="left-add">
       </select>
     </td>
+    <td class="td-separator-add"></td>
     <td>
       <label for="left-pupil">H.Pup</label><br>
       <select id="left-pupil">
       </select>
     </td>
     <td class="td-separator"></td>
-    <td class="result" id="left-res">
+    <td class="td-result" style="background-image: url('assets/img/left-glass.jpg');">
+      <div class="result" id="left-res"></div>
     </td>
   </tr>
 </table>

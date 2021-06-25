@@ -10,6 +10,10 @@ function initialize() {
 	initializePupil()
 
 	calculate()
+
+	document
+		.getElementById('password')
+		.addEventListener('change', password_changed)
 }
 
 function initializeSph() {
@@ -89,12 +93,6 @@ function initializePupil() {
 	view.leftPupil.addEventListener( 'change', option_changed)
 }
 
-function option_changed(event) {
-	event.preventDefault()
-
-	calculate()
-}
-
 function calculate() {
 	const rightSph = Math.round(parseFloat(view.rightSph.value) * 100)
 	const rightCyl = Math.round(parseFloat(view.rightCyl.value) * 100)
@@ -114,7 +112,7 @@ function calculate() {
 		showResult(view.leftRes, 'Bas Sh<br>Pr Sh<br>Al Sh<br>Chan 5')
 	}
 
-	if ( Math.abs(rightSe - leftSe) < 300) {
+	if (Math.abs(rightSe - leftSe) < 300) {
 		if (rightPup >= 15) {
 			const rightAdd = Math.round(parseFloat(view.rightAdd.value) * 100)
 			const res = calculateOptic(rightSe, rightAdd, rightPup)
@@ -136,25 +134,6 @@ function calculate() {
 			showResult(view.leftRes, 'HD<br>HD 2<br>HD 3<br>Chan 7')
 		}
 	}
-}
-
-function showResult(control, res) {
-
-	res = res.replace(/\b(.) /g,    "$1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-	res = res.replace(/\b(.{2}) /g, "$1&nbsp;&nbsp;&nbsp;")
-	res = res.replace(/\b(.{3}) /g, "$1&nbsp;&nbsp;")
-	control.innerHTML = res
-
-/*
-	const lines = res.split('<br>')
-	const cells = []
-	lines.forEach(l => {
-		const parts = l.split(' ')
-		if (parts.length === 1) {
-			cells.push([])
-		}
-	})
-*/
 }
 
 function getSe(sph, cyl) {
@@ -313,4 +292,28 @@ function calculateOptic(se, add, pup) {
 				: 13
 
 	return opDesign + `<br>Chan ${ch}`
+}
+
+function showResult(control, res) {
+	res = res.replace(/\b(.) /g,    "$1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+	res = res.replace(/\b(.{2}) /g, "$1&nbsp;&nbsp;&nbsp;")
+	res = res.replace(/\b(.{3}) /g, "$1&nbsp;&nbsp;")
+
+	control.innerHTML = res
+}
+
+function password_changed(event) {
+	event.preventDefault()
+
+	const value = parseInt(event.target.value)
+	if (Math.round(Math.sqrt(value * 13)) === 127) {
+		document.getElementById('password-area').style.display = 'none'
+		document.getElementById('table-data'   ).style.display = 'block'
+	}
+}
+
+function option_changed(event) {
+	event.preventDefault()
+
+	calculate()
 }

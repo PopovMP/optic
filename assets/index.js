@@ -25,8 +25,10 @@ function initializeSph() {
 		sphOptions.push(`<option id="${sph}">${(sph / 100).toFixed(2)}</option>`)
 	}
 	const sphOptionHtml = sphOptions.join('/n')
+
 	view.rightSph.innerHTML = sphOptionHtml
 	view.leftSph.innerHTML  = sphOptionHtml
+
 	view.rightSph.value = '0.00'
 	view.leftSph.value  = '0.00'
 
@@ -43,6 +45,7 @@ function initializeCyl() {
 		sphOptions.push(`<option id="${cyl}">${(cyl / 100).toFixed(2)}</option>`)
 	}
 	const sphOptionHtml = sphOptions.join('/n')
+
 	view.rightCyl.innerHTML = sphOptionHtml
 	view.leftCyl.innerHTML  = sphOptionHtml
 
@@ -103,34 +106,34 @@ function calculate() {
 	const leftSe  = getSe(leftSph, leftCyl)
 
 	const rightPup = parseInt(view.rightPupil.value)
-	if (rightPup < 15) {
+	if (rightPup < 17) {
 		showResult(view.rightRes, 'Bas Sh<br>Pr Sh<br>Al Sh<br>Chan 5')
 	}
 
 	const leftPup = parseInt(view.leftPupil.value)
-	if (leftPup < 15) {
+	if (leftPup < 17) {
 		showResult(view.leftRes, 'Bas Sh<br>Pr Sh<br>Al Sh<br>Chan 5')
 	}
 
 	if (Math.abs(rightSe - leftSe) < 300) {
-		if (rightPup >= 15) {
+		if (rightPup >= 17) {
 			const rightAdd = Math.round(parseFloat(view.rightAdd.value) * 100)
 			const res = calculateOptic(rightSe, rightAdd, rightPup)
 			showResult(view.rightRes, res)
 		}
 
-		if (leftPup >= 15) {
+		if (leftPup >= 17) {
 			const leftAdd = Math.round(parseFloat(view.leftAdd.value) * 100)
 			const res = calculateOptic(leftSe, leftAdd, leftPup)
 			showResult(view.leftRes, res)
 		}
 	}
 	else {
-		if (rightPup >= 15) {
+		if (rightPup >= 17) {
 			showResult(view.rightRes, 'HD<br>HD 2<br>HD 3<br>Chan 7')
 		}
 
-		if (rightPup >= 15) {
+		if (rightPup >= 17) {
 			showResult(view.leftRes, 'HD<br>HD 2<br>HD 3<br>Chan 7')
 		}
 	}
@@ -138,7 +141,7 @@ function calculate() {
 
 function getSe(sph, cyl) {
 	return (sph >=0 && cyl >= 0) || (sph <= 0 && cyl <= 0)
-		? sph + (cyl / 2)
+		? sph + ( cyl / 2)
 		: sph - (-cyl / 2)
 }
 
@@ -202,14 +205,14 @@ function calculateOptic(se, add, pup) {
 			case 75:
 			case 100:
 				opDesign = 'SD<br>S 35<br>A 35'
-				if (pup > 22) {
+				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
 				break
 			case 125:
 			case 150:
 				opDesign = 'SD<br>S 35<br>A 35'
-				if (pup > 22) {
+				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
 				break
@@ -234,23 +237,35 @@ function calculateOptic(se, add, pup) {
 			case 75:
 			case 100:
 				opDesign = 'SD<br>S 35<br>A 35'
+				if (pup > 25) {
+					return opDesign + '<br>Chan 13'
+				}
 				break
 			case 125:
 			case 150:
-				opDesign = 'SD<br>S 2<br>A 3'
+				opDesign = 'SD<br>SD 2<br>SD 3'
 				break
 			case 175:
 			case 200:
+				if (pup > 25) {
+					return opDesign + '<br>Chan 13'
+				}
 				opDesign = 'MD<br>MD 2<br>MD 3'
 				break
 			case 225:
 			case 250:
+				if (pup > 25) {
+					return opDesign + '<br>Chan 13'
+				}
 				opDesign = 'MD<br>MD 2<br>MD 3'
 				break
 			case 275:
 			case 300:
 			case 325:
 			case 350:
+				if (pup > 25) {
+					return opDesign + '<br>Chan 13'
+				}
 				opDesign = 'MD<br>MD 2<br>MD 3'
 				break
 		}
@@ -279,17 +294,23 @@ function calculateOptic(se, add, pup) {
 			case 350:
 				opDesign = 'MD<br>MD 2<br>MD 3'
 		}
+
+		if (pup > 25) {
+			return opDesign + '<br>Chan 13'
+		}
 	}
 
-	const ch = se <= -125
-		? pup <= 19
+	if (se <= -125) {
+		const ch = pup <= 20
 			? 7
 			: 9
-		: pup <= 19
-			? 9
-			: pup <= 22
-				? 11
-				: 13
+
+		return opDesign + `<br>Chan ${ch}`
+	}
+
+	const ch = pup <= 24
+		? 9
+		: 11
 
 	return opDesign + `<br>Chan ${ch}`
 }

@@ -326,7 +326,7 @@ function calculateOptic(se, add, pup) {
 		return opDesign + `<br>Chan ${ch}`
 	}
 
-	const ch = pup <= 24
+	const ch = pup <= 22
 		? 9
 		: 11
 

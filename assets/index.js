@@ -306,7 +306,7 @@ function password_changed(event) {
 	event.preventDefault()
 
 	const value = parseInt(event.target.value)
-	if (Math.round(Math.sqrt(value * 13)) === 127) {
+	if (Math.round(Math.sqrt(value * 13)) === 240) {
 		document.getElementById('password-area').style.display = 'none'
 		document.getElementById('table-data'   ).style.display = 'block'
 	}

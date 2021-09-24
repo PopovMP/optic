@@ -1,5 +1,7 @@
 const view = {}
 
+let passToken = 0
+
 function initialize() {
 	view.rightRes = document.getElementById('right-res')
 	view.leftRes  = document.getElementById('left-res')
@@ -11,9 +13,15 @@ function initialize() {
 
 	calculate()
 
+	passToken = 240
 	document
 		.getElementById('password')
 		.addEventListener('change', password_changed)
+}
+
+function initHera() {
+	passToken = 318
+
 }
 
 function initializeSph() {
@@ -327,7 +335,7 @@ function password_changed(event) {
 	event.preventDefault()
 
 	const value = parseInt(event.target.value)
-	if (Math.round(Math.sqrt(value * 13)) === 240) {
+	if (Math.round(Math.sqrt(value * 13)) === passToken) {
 		document.getElementById('password-area').style.display = 'none'
 		document.getElementById('table-data'   ).style.display = 'block'
 	}

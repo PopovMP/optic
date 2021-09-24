@@ -265,26 +265,26 @@ function calculateOptic(se, add, pup) {
 				break
 			case 175:
 			case 200:
+				opDesign = 'MD<br>MD 2<br>MD 3'
 				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
-				opDesign = 'MD<br>MD 2<br>MD 3'
 				break
 			case 225:
 			case 250:
+				opDesign = 'MD<br>MD 2<br>MD 3'
 				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
-				opDesign = 'MD<br>MD 2<br>MD 3'
 				break
 			case 275:
 			case 300:
 			case 325:
 			case 350:
+				opDesign = 'MD<br>MD 2<br>MD 3'
 				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
-				opDesign = 'MD<br>MD 2<br>MD 3'
 				break
 		}
 	}

@@ -1,6 +1,7 @@
 const view = {}
 
 let passToken = 0
+let isHera = false
 
 function initialize() {
 	view.rightRes = document.getElementById('right-res')
@@ -21,7 +22,7 @@ function initialize() {
 
 function initHera() {
 	passToken = 318
-
+	isHera = true
 }
 
 function initializeSph() {
@@ -116,10 +117,13 @@ function calculate() {
 	const rightPup = parseInt(view.rightPupil.value)
 	if (rightPup < 17) {
 		showResult(view.rightRes, 'Bas Sh<br>Pr Sh<br>Al Sh<br>Chan 5')
+		if (isHera) {
+			showResult(view.leftRes, 'Bas Sh<br>Pr Sh<br>Al Sh<br>Chan 5')
+		}
 	}
 
 	const leftPup = parseInt(view.leftPupil.value)
-	if (leftPup < 17) {
+	if (leftPup < 17 && !isHera) {
 		showResult(view.leftRes, 'Bas Sh<br>Pr Sh<br>Al Sh<br>Chan 5')
 	}
 
@@ -128,9 +132,12 @@ function calculate() {
 			const rightAdd = Math.round(parseFloat(view.rightAdd.value) * 100)
 			const res = calculateOptic(rightSe, rightAdd, rightPup)
 			showResult(view.rightRes, res)
+			if (isHera) {
+				showResult(view.leftRes, res)
+			}
 		}
 
-		if (leftPup >= 17) {
+		if (leftPup >= 17 && !isHera) {
 			const leftAdd = Math.round(parseFloat(view.leftAdd.value) * 100)
 			const res = calculateOptic(leftSe, leftAdd, leftPup)
 			showResult(view.leftRes, res)
@@ -139,9 +146,12 @@ function calculate() {
 	else {
 		if (rightPup >= 17) {
 			showResult(view.rightRes, 'HD<br>HD 2<br>HD 3<br>Chan 7')
+			if (isHera) {
+				showResult(view.leftRes, 'HD<br>HD 2<br>HD 3<br>Chan 7')
+			}
 		}
 
-		if (rightPup >= 17) {
+		if (rightPup >= 17 && !isHera) {
 			showResult(view.leftRes, 'HD<br>HD 2<br>HD 3<br>Chan 7')
 		}
 	}

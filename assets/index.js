@@ -21,8 +21,8 @@ function initialize() {
 }
 
 function initHera() {
-	passToken = 318
-	isHera = true
+	passToken = 297
+	isHera    = true
 }
 
 function initializeSph() {
@@ -158,7 +158,7 @@ function calculate() {
 }
 
 function getSe(sph, cyl) {
-	return (sph >=0 && cyl >= 0) || (sph <= 0 && cyl <= 0)
+	return (sph >= 0 && cyl >= 0) || (sph <= 0 && cyl <= 0)
 		? sph + ( cyl / 2)
 		: sph - (-cyl / 2)
 }
@@ -222,14 +222,12 @@ function calculateOptic(se, add, pup) {
 		switch (add) {
 			case 75:
 			case 100:
-				opDesign = 'SD<br>S 35<br>A 35'
-				if (pup > 25) {
-					return opDesign + '<br>Chan 13'
-				}
-				break
 			case 125:
 			case 150:
 				opDesign = 'SD<br>S 35<br>A 35'
+				if (pup >= 23 && pup <= 25) {
+					return opDesign + '<br>Chan 11'
+				}
 				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
@@ -255,6 +253,9 @@ function calculateOptic(se, add, pup) {
 			case 75:
 			case 100:
 				opDesign = 'SD<br>S 35<br>A 35'
+				if (pup >= 23 && pup <= 25) {
+					return opDesign + '<br>Chan 11'
+				}
 				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
@@ -266,6 +267,9 @@ function calculateOptic(se, add, pup) {
 			case 175:
 			case 200:
 				opDesign = 'MD<br>MD 2<br>MD 3'
+				if (pup >= 23 && pup <= 25) {
+					return opDesign + '<br>Chan 11'
+				}
 				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
@@ -273,6 +277,9 @@ function calculateOptic(se, add, pup) {
 			case 225:
 			case 250:
 				opDesign = 'MD<br>MD 2<br>MD 3'
+				if (pup >= 23 && pup <= 25) {
+					return opDesign + '<br>Chan 11'
+				}
 				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
@@ -282,6 +289,9 @@ function calculateOptic(se, add, pup) {
 			case 325:
 			case 350:
 				opDesign = 'MD<br>MD 2<br>MD 3'
+				if (pup >= 23 && pup <= 25) {
+					return opDesign + '<br>Chan 11'
+				}
 				if (pup > 25) {
 					return opDesign + '<br>Chan 13'
 				}
@@ -319,17 +329,11 @@ function calculateOptic(se, add, pup) {
 	}
 
 	if (se <= -125) {
-		const ch = pup <= 20
-			? 7
-			: 9
-
+		const ch = pup <= 20 ? 7 : 9
 		return opDesign + `<br>Chan ${ch}`
 	}
 
-	const ch = pup <= 22
-		? 9
-		: 11
-
+	const ch = pup < 17 ? 5 : pup <= 20 ? 7 : pup < 23 ? 9 : 11;
 	return opDesign + `<br>Chan ${ch}`
 }
 

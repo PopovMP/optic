@@ -1,0 +1,14 @@
+
+body {
+    background-color: #207ec2;
+    color: #ffffff;
+}
+
+header {
+    margin-top: 20px;
+}
+
+.result {
+    padding-top: 20px;
+    line-height: 50px;
+}

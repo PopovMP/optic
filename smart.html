@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart</title>
+  <link rel="icon" href="assets/smart-favi.ico">
+  <link rel="stylesheet" href="assets/style.css?v=2">
+  <link rel="stylesheet" href="assets/smart.css?v=1">
+</head>
+<body>
+
+<header><img src="assets/img/smart-logo.png" alt="Smart" style="width: 450px"></header>
+
+<h1>калкулатор на прогресивни дизайни</h1>
+
+<p id="password-area" style="display: block">
+  <label for="password" style="margin-right: 10px">Парола</label>
+  <input id="password" type="password">
+</p>
+
+<table id="table-data" style="display: none">
+  <tr>
+    <th colspan="7">дясно око</th>
+  </tr>
+  <tr>
+    <td>
+      <label for="right-sph">Sph</label><br>
+      <select id="right-sph">
+      </select>
+    </td>
+    <td>
+      <label for="right-cyl">Cyl</label><br>
+      <select id="right-cyl">
+      </select>
+    </td>
+    <td class="td-separator-add"></td>
+    <td>
+      <label for="right-add">Add</label><br>
+      <select id="right-add">
+      </select>
+    </td>
+    <td class="td-separator-add"></td>
+    <td>
+      <label for="right-pupil">H Pupil</label><br>
+      <select id="right-pupil">
+      </select>
+    </td>
+    <td class="td-separator"></td>
+    <td class="td-result" style="background-image: url('assets/img/right-glass.png');">
+      <div class="result" id="right-res"></div>
+    </td>
+  </tr>
+  <tr>
+    <td style="min-height: 150px">&nbsp;</td>
+  </tr>
+  <tr>
+    <th colspan="7">ляво око</th>
+  </tr>
+  <tr>
+    <td>
+      <label for="left-sph">Sph</label><br>
+      <select id="left-sph">
+      </select>
+    </td>
+    <td>
+      <label for="left-cyl">Cyl</label><br>
+      <select id="left-cyl">
+      </select>
+    </td>
+    <td class="td-separator-add"></td>
+    <td>
+      <label for="left-add">Add</label><br>
+      <select id="left-add">
+      </select>
+    </td>
+    <td class="td-separator-add"></td>
+    <td>
+      <label for="left-pupil">H Pupil</label><br>
+      <select id="left-pupil">
+      </select>
+    </td>
+    <td class="td-separator"></td>
+    <td class="td-result" style="background-image: url('assets/img/left-glass.png');">
+      <div class="result" id="left-res"></div>
+    </td>
+  </tr>
+</table>
+
+<script src="assets/smart.js?v=1.1" ></script>
+<script>
+	(() => {
+		initialize()
+	})()
+</script>
+</body>
+</html>

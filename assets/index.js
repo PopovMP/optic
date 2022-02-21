@@ -167,49 +167,20 @@ function calculateOptic(se, add, pup) {
 	let opDesign = ''
 
 	if (se < -300) {
-		switch (add) {
-			case 75:
-			case 100:
-				opDesign = 'HD<br>HD 2<br>HD 3'
-				break
-			case 125:
-			case 150:
-				opDesign = 'HD<br>HD 2<br>HD 3'
-				break
-			case 175:
-			case 200:
-				opDesign = 'HD<br>HD 2<br>HD 3'
-				break
-			case 225:
-			case 250:
-				opDesign = 'HD<br>HD 2<br>HD 3'
-				break
-			case 275:
-			case 300:
-			case 325:
-			case 350:
-				opDesign = 'HD<br>HD 2<br>HD 3'
-				break
-		}
+		opDesign = 'HD<br>HD 2<br>HD 3'
 	}
 	else if (se >= -300 && se < -125) {
 		switch (add) {
 			case 75:
 			case 100:
-				opDesign = 'HD<br>HD 2<br>HD 3'
-				break
 			case 125:
 			case 150:
 				opDesign = 'HD<br>HD 2<br>HD 3'
 				break
 			case 175:
 			case 200:
-				opDesign = 'MD<br>MD 2<br>MD 3'
-				break
 			case 225:
 			case 250:
-				opDesign = 'MD<br>MD 2<br>MD 3'
-				break
 			case 275:
 			case 300:
 			case 325:
@@ -234,12 +205,8 @@ function calculateOptic(se, add, pup) {
 				break
 			case 175:
 			case 200:
-				opDesign = 'SD<br>SD 2<br>SD 3'
-				break
 			case 225:
 			case 250:
-				opDesign = 'SD<br>SD 2<br>SD 3'
-				break
 			case 275:
 			case 300:
 			case 325:
@@ -299,30 +266,7 @@ function calculateOptic(se, add, pup) {
 		}
 	}
 	else if (se >= 325) {
-		switch (add) {
-			case 75:
-			case 100:
-				opDesign = 'MD<br>MD 2<br>MD 3'
-				break
-			case 125:
-			case 150:
-				opDesign = 'MD<br>MD 2<br>MD 3'
-				break
-			case 175:
-			case 200:
-				opDesign = 'MD<br>MD 2<br>MD 3'
-				break
-			case 225:
-			case 250:
-				opDesign = 'MD<br>MD 2<br>MD 3'
-				break
-			case 275:
-			case 300:
-			case 325:
-			case 350:
-				opDesign = 'MD<br>MD 2<br>MD 3'
-		}
-
+		opDesign = 'MD<br>MD 2<br>MD 3'
 		if (pup > 25) {
 			return opDesign + '<br>Chan 13'
 		}
